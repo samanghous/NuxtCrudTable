@@ -13,7 +13,7 @@
         </button>
         <aside id="default-sidebar"
             class="dark fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
-            aria-label="Sidebar">
+            aria-label="sidebar">
             <div
                 class="pt-4 text-gray-900  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 bg-gray-50 dark:bg-gray-800">
                 <div class="text-center ml-3 font-medium text-3xl">
@@ -92,11 +92,32 @@
  
 
 <script setup>
-import { onMounted } from 'vue'
-import { initFlowbite } from 'flowbite'
+import { onMounted } from "vue";
+import { Drawer } from "flowbite";
 
-// initialize components based on data attribute selectors
 onMounted(() => {
-    initFlowbite();
-})
+  const $buttonElement=document.querySelector('#button')
+  const $sideBarElement=document.querySelector('#sidebar')
+  const $closeButtonElement=document.querySelectorAll('.closeButton')
+
+  const drawerOptions = {
+    backdropClasses:
+      'bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+  };
+
+  let drawer
+  if ($sideBarElement) {
+    drawer = new Drawer($sideBarElement, drawerOptions);
+
+    $buttonElement.addEventListener('click',()=>{
+      drawer.toggle()
+    })
+    
+    $closeButtonElement.forEach((item)=>{
+      item.addEventListener('click',()=>{
+        drawer.hide()
+      })
+    })
+  }
+});
 </script>
