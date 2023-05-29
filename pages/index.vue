@@ -1,92 +1,87 @@
 <template>
-    <section class="md:flex items-center justify-between md:mx-5 mx-2">
-        <div>
-            <div class="flex items-center">
-                <h2 class="text-xl font-bold">Senior Product Designer</h2>
-            </div>
-            <p class="text-sm text-gray-600">Purwokerto . Full Time</p>
-        </div>
-        <div class="mt-2 md:mt-0">
-            <button type="button"
-                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Share
-                &amp; Promote</button>
-            <button type="button"
-                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Published</button>
-        </div>
-    </section>
+    <div class="md:flex justify-between w-11/12 mx-auto my-5">
+        <h4 class="md:text-xl font-bold">Last Changed at: <span class="text-gray-400">5/26/2023, 5:39:53 PM</span></h4>
+        <h4 class="md:text-xl font-bold">Total Hours Last 3 Months: <span class="mr-2 text-gray-400">0 Hours</span></h4>
+        <h4 class="md:text-xl font-bold"> Total Hours Next 3 Months: <span class="text-gray-400">0 Hours</span></h4>
+    </div>
 
-    <section>
-        <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px text-lg font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent"
-                role="tablist">
-                <li class="mr-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="candidate-tab"
-                        data-tabs-target="#candidate" type="button" role="tab" aria-controls="candidate"
-                        aria-selected="false">Candidate</button>
-                </li>
-                <li class="mr-2" role="presentation">
-                    <button
-                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="job_details-tab" data-tabs-target="#job_details" type="button" role="tab"
-                        aria-controls="job_details" aria-selected="false">Job details</button>
-                </li>
-                <li class="mr-2" role="presentation">
-                    <button
-                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="time_line-tab" data-tabs-target="#time_line" type="button" role="tab" aria-controls="time_line"
-                        aria-selected="false">Time Line</button>
-                </li>
-                <li class="mr-2" role="presentation">
-                    <button
-                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="hiring_team-tab" data-tabs-target="#hiring_team" type="button" role="tab"
-                        aria-controls="hiring_team" aria-selected="false">Hiring Team</button>
-                </li>
-                <li class="mr-2" role="presentation">
-                    <button
-                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings"
-                        aria-selected="false">Settings</button>
-                </li>
-            </ul>
+    <div class="w-11/12 mx-auto">
+        <div>{{formdata}}</div>
+        <div class="mb-10">
+            <h2 class="md:text-4xl text-2xl font-bold mb-5">PAST / CONTINUING STAGE</h2>
+            <div v-if=!formdata.length class="overflow-x-auto">
+                <form><!----></form>
+                <form class="flex justify-center mt-5">
+                    <button type="submit"
+                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                        onclick="generateTable()">
+                        <span>
+                            Create New Table
+                        </span>
+                    </button>
+                </form>
+            </div>
+            <div v-if=formdata.length class="overflow-x-auto">
+                <form>
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-4 py-3">Work to be done</th>
+                                <th scope="col" class="px-4 py-3">Hours Last 3 Months</th>
+                                <th scope="col" class="px-4 py-3">Hours Next 3 Months</th>
+                                <th scope="col" class="px-4 py-3">Primary Stakeholder</th>
+                                <th scope="col" class="px-4 py-3">Outcome</th>
+                                <th scope="col" class="px-4 py-3">Skills Required</th>
+                                <th scope="col" class="px-4 py-3">Work Quality</th>
+                                <th scope="col" class="px-4 py-3">Capability</th>
+                                <th scope="col" class="px-4 py-3">Interest</th>
+                                <th scope="col" class="px-4 py-3">Comment</th>
+                                <th scope="col" class="px-4 py-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap"></th>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="px-4 py-3"></td>
+                                <td class="text-center">
+                                    <div class="flex items-center justify-center"><button class="py-3 text-blue-600"
+                                            type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="currentColor" class="w-6 h-6">
+                                                <path
+                                                    d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z">
+                                                </path>
+                                                <path
+                                                    d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z">
+                                                </path>
+                                            </svg></button><button class="py-3 text-red-600" type="button"><svg
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="w-6 h-6">
+                                                <path fill-rule="evenodd"
+                                                    d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg></button></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <form class="flex justify-center mt-5"><button type="submit"
+                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><span>Add
+                            Row</span></button>
+                </form>
+            </div>
         </div>
-        <div id="myTabContent">
-            <div class="hidden px-2 rounded-lg bg-gray-50 dark:bg-gray-800" id="candidate" role="tabpanel"
-                aria-labelledby="candidate-tab">
-                <IndexCandidate/>
-            </div>
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="job_details" role="tabpanel"
-                aria-labelledby="job_details-tab">
-                <p class="text-sm text-gray-500 dark:text-gray-400">job_details+This is some placeholder content the <strong
-                        class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>.
-                    Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps
-                    classes to control the content visibility and styling.</p>
-            </div>
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="time_line" role="tabpanel"
-                aria-labelledby="time_line-tab">
-                <p class="text-sm text-gray-500 dark:text-gray-400">time_line + This is some placeholder content the <strong
-                        class="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>.
-                    Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps
-                    classes to control the content visibility and styling.</p>
-            </div>
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="hiring_team" role="tabpanel"
-                aria-labelledby="hiring_team-tab">
-                <p class="text-sm text-gray-500 dark:text-gray-400">hiring_team + This is some placeholder content the
-                    <strong class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>.
-                    Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps
-                    classes to control the content visibility and styling.
-                </p>
-            </div>
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel"
-                aria-labelledby="settings-tab">
-                <p class="text-sm text-gray-500 dark:text-gray-400">settings + This is some placeholder content the <strong
-                        class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>.
-                    Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps
-                    classes to control the content visibility and styling.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 </template>
+
 
 
 <script setup>
@@ -98,5 +93,12 @@ onMounted(() => {
     initFlowbite();
 })
 
+let formdata = [];
+
+function generateTable() {
+    const row= ["Service1",2,2,"My Manager","Revenue Generated","core","Service is working well","I am fully capable","Enjoy the service","all ok"];
+    formdata=["1","2"];
+    console.log(formdata);
+}
 
 </script>
